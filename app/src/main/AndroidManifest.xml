@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="xyz.javaee.myapplication">
-
     <!-- 声明需要网络 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 写外置 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读外置 -->
@@ -17,10 +16,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".lab7.Lab7DataShowActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="xyz.javaee.lab7_data" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".lab7.Lab7SQLiteActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="xyz.javaee.lab7" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"
             android:exported="true" />
+
         <activity
             android:name=".lab6.JSONActivity"
             android:exported="true">

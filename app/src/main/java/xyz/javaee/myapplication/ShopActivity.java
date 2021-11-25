@@ -27,7 +27,7 @@ public class ShopActivity extends AppCompatActivity {
 
     @OnItemClick(R.id.list_product)
     public void productClick(View view, int position) {
-        Toast.makeText(getApplicationContext(), "hello:" + position, Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(), "hello:" + position, Toast.LENGTH_LONG).show();
     }
 
 

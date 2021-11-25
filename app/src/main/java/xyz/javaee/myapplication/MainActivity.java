@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.webView_one)
     WebView webViewOne;
 
-    @OnClick({R.id.button_json, R.id.button_lab6, R.id.button_one, R.id.button_LOGIN, R.id.button_REGISTER, R.id.button_LIFE, R.id.button_SHOP, R.id.button_TEST})
+    @OnClick({R.id.button_lab7,R.id.button_json, R.id.button_lab6, R.id.button_one, R.id.button_LOGIN, R.id.button_REGISTER, R.id.button_LIFE, R.id.button_SHOP, R.id.button_TEST})
     public void clickJump(View view) {
         Intent intent = new Intent();
 
@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.button_json:
                 intent.setAction("xyz.javaee.json");
+                startActivity(intent);
+                break;
+                case R.id.button_lab7:
+                intent.setAction("xyz.javaee.lab7");
                 startActivity(intent);
                 break;
         }
