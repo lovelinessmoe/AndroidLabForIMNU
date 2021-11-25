@@ -16,14 +16,28 @@ import xyz.javaee.myapplication.entity.Product;
 public class ProductAdapter extends ArrayAdapter {
     private int resourceId;
 
+    /**
+     * 产品列表的构造方法
+     *
+     * @param context            上下文对象
+     * @param textViewResourceId 对应单个item的样式
+     * @param objects            要展示的数据
+     */
     public ProductAdapter(Context context, int textViewResourceId, List<Product> objects) {
         super(context, textViewResourceId, objects);
         resourceId = textViewResourceId;
     }
 
+    /**
+     * @param position    对应item视图
+     * @param convertView 一个旧的item元素
+     * @param parent
+     * @return 构建出来的新元素
+     */
     public View getView(int position, View convertView, ViewGroup parent) {
         Product product = (Product) getItem(position);
         View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
+//        View view = convertView
 
         ImageView productImage = view.findViewById(R.id.productImage);
         productImage.setImageResource(product.getAvatar());

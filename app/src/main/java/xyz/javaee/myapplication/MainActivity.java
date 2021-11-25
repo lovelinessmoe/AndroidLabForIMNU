@@ -7,67 +7,70 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.textView_one)
+    View textViewOne;
+
+    @BindView(R.id.webView_one)
+    WebView webViewOne;
+
+    @OnClick({R.id.button_json, R.id.button_lab6, R.id.button_one, R.id.button_LOGIN, R.id.button_REGISTER, R.id.button_LIFE, R.id.button_SHOP, R.id.button_TEST})
+    public void clickJump(View view) {
+        Intent intent = new Intent();
+
+        switch (view.getId()) {
+            case R.id.button_one:
+                int visibility = textViewOne.getVisibility();
+                if (visibility == View.VISIBLE) {
+                    textViewOne.setVisibility(View.INVISIBLE);
+                } else {
+                    textViewOne.setVisibility(View.VISIBLE);
+                }
+                break;
+            case R.id.button_LOGIN:
+                intent.setAction("xyz.javaee.login");
+                startActivity(intent);
+                break;
+            case R.id.button_REGISTER:
+                intent.setAction("xyz.javaee.register");
+                startActivity(intent);
+                break;
+            case R.id.button_LIFE:
+                intent.setAction("xyz.javaee.acticityLife1");
+                startActivity(intent);
+                break;
+            case R.id.button_SHOP:
+                intent.setAction("xyz.javaee.shop2");
+                startActivity(intent);
+                break;
+            case R.id.button_TEST:
+                intent.setAction("xyz.javaee.test");
+                startActivity(intent);
+                break;
+            case R.id.button_lab6:
+                intent.setAction("xyz.javaee.lab6");
+                startActivity(intent);
+                break;
+            case R.id.button_json:
+                intent.setAction("xyz.javaee.json");
+                startActivity(intent);
+                break;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        View textViewOne = findViewById(R.id.textView_one);
-
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            Intent intent = new Intent();
-
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.button_one:
-                        int visibility = textViewOne.getVisibility();
-                        if (visibility == View.VISIBLE) {
-                            textViewOne.setVisibility(View.INVISIBLE);
-                        } else {
-                            textViewOne.setVisibility(View.VISIBLE);
-                        }
-                        break;
-                    case R.id.button_LOGIN:
-                        intent.setAction("xyz.javaee.login");
-                        startActivity(intent);
-                        break;
-                    case R.id.button_REGISTER:
-                        intent.setAction("xyz.javaee.register");
-                        startActivity(intent);
-                        break;
-                    case R.id.button_LIFE:
-                        intent.setAction("xyz.javaee.acticityLife1");
-                        startActivity(intent);
-                        break;
-                    case R.id.button_SHOP:
-                        intent.setAction("xyz.javaee.shop2");
-                        startActivity(intent);
-                        break;
-                }
-            }
-        };
-
-        Button buttonOne = findViewById(R.id.button_one);
-        buttonOne.setOnClickListener(onClickListener);
-
-        Button login = findViewById(R.id.button_LOGIN);
-        login.setOnClickListener(onClickListener);
-
-        Button life = findViewById(R.id.button_LIFE);
-        life.setOnClickListener(onClickListener);
-
-        Button register = findViewById(R.id.button_REGISTER);
-        register.setOnClickListener(onClickListener);
-
-        Button shop = findViewById(R.id.button_SHOP);
-        shop.setOnClickListener(onClickListener);
+        ButterKnife.bind(this);
 
 
-        WebView webViewOne = findViewById(R.id.webView_one);
         webViewOne.getSettings().setJavaScriptEnabled(true);
         webViewOne.setWebViewClient(new WebViewClient());
         webViewOne.loadUrl("http://javaee.xyz");
