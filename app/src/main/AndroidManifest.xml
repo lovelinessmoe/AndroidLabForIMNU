@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="xyz.javaee.myapplication" >
-
+    package="xyz.javaee.myapplication">
     <!-- 声明需要网络 -->
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 写外置 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读外置 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 管理外置 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 写外置 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 读外置 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 管理外置 -->
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
@@ -16,17 +18,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".lab9.Lab9Activty"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="xyz.javaee.lab9" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
         <provider
             android:name=".Lab8ContentProvider"
             android:authorities="loveliness"
             android:enabled="true"
-            android:exported="true" >
-        </provider>
+            android:exported="true"></provider>
 
         <activity
             android:name=".lab7.Lab7DataShowActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="xyz.javaee.lab7_data" />
 
@@ -35,7 +47,7 @@
         </activity>
         <activity
             android:name=".lab7.Lab7SQLiteActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="xyz.javaee.lab7" />
 
