@@ -39,6 +39,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'com.jakewharton:butterknife:10.2.3'
     implementation 'com.alibaba:fastjson:1.2.78'
+    implementation files('../bin/android-async-http-1.4.8.jar')
+    implementation files('../bin/android-smart-image-view-1.0.0.jar')
+    implementation files('../bin/httpcore-4.4.4.jar')
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
